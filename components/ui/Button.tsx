@@ -3,11 +3,9 @@ import { motion } from 'framer-motion';
 
 // FIX: Extend from motion.button's component props to resolve type conflicts
 // with event handlers like onAnimationStart.
-interface ButtonProps extends React.ComponentProps<typeof motion.button> {
-  children: React.ReactNode;
+type ButtonProps = React.ComponentProps<typeof motion.button> & {
   variant?: 'primary' | 'green' | 'purple' | 'orange' | 'teal';
-  className?: string;
-}
+};
 
 const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', className = '', ...props }) => {
   const gradients = {
