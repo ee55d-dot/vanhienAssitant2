@@ -1,8 +1,9 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+// FIX: Extend from motion.button's component props to resolve type conflicts
+// with event handlers like onAnimationStart.
+interface ButtonProps extends React.ComponentProps<typeof motion.button> {
   children: React.ReactNode;
   variant?: 'primary' | 'green' | 'purple' | 'orange' | 'teal';
   className?: string;

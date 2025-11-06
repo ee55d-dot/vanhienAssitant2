@@ -1,14 +1,15 @@
-
 import React, { useState } from 'react';
 import Card from './ui/Card';
 import { motion } from 'framer-motion';
 
 const Switch: React.FC<{ enabled: boolean; setEnabled: (enabled: boolean) => void }> = ({ enabled, setEnabled }) => {
+    // FIX: Add 'as const' to ensure TypeScript infers the 'type' property
+    // as the literal "spring" instead of the general string type.
     const spring = {
         type: "spring",
         stiffness: 700,
         damping: 30
-    };
+    } as const;
 
     return (
         <div 

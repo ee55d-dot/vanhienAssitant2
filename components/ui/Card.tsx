@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import the Variants type from framer-motion.
+import { motion, Variants } from 'framer-motion';
 
 interface CardProps {
   children: React.ReactNode;
@@ -8,7 +8,8 @@ interface CardProps {
   title?: string;
 }
 
-const cardVariants = {
+// FIX: Explicitly type cardVariants with the Variants type to ensure properties like 'ease' are correctly typed.
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
